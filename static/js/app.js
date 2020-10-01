@@ -43,10 +43,10 @@ function getPlot(id) {
             tickmode:"linear",
         },
         margin: {
-            l: 100,
-            r: 50,
-            t: 100,
-            b: 30
+          l: 100,
+          r: 100,
+          t: 30,
+          b: 20
         }
       };
       // create the bar plot
@@ -59,19 +59,17 @@ function getPlot(id) {
           y: samples.sample_values,
           mode: "markers",
           marker: {
-            color: samples.otu_ids,
-            size: samples.sample_values
+            size: samples.sample_values,
+            color: samples.otu_ids ['rgb(93, 164, 214)', 'rgb(255, 144, 14)',  'rgb(44, 160, 101)', 'rgb(255, 65, 54)'],
           },
           text: samples.otu_labels
       };
     
       // set the layout for the bubble plot
       var layout_b = {
-          xaxis:{
-          title: "OTU ID",
-        },
-        showlegend: false
-      };
+        xaxis:{title: "OTU ID"},
+
+    };
     
       // creating data variable 
       var data1 = [trace1];
@@ -105,7 +103,7 @@ function getPlot(id) {
   
           // grab the necessary demographic data for the id and append the info to the panel
           Object.entries(result).forEach((key) => {   
-                  demographicInfo.append("h6").text(key[0].toLocaleLowerCase() + ": " + key[1] + " \n");    
+                  demographicInfo.append("h5").text(key[0].toLocaleLowerCase() + ": " + key[1] + " \n");    
           });
       });
   }
